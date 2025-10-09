@@ -25,4 +25,19 @@ export class criaEventoDTO {
     )
     dia: string;
 
+    @IsString()
+    @IsNotEmpty({message: 'O nome não pode ser vazio'})
+    @IsNotEmpty({message: 'O horario não pode ser vazio'})
+    local:string  
+    
+    @IsString()
+    @IsNotEmpty({message: 'O nome não pode ser vazio'})
+    @IsNotEmpty({message: 'O horario não pode ser vazio'})
+        faixaEtaria:string
+    
+    @IsString()
+    @IsNotEmpty({message: 'O nome não pode ser vazio'})
+    @IsNotEmpty({message: 'O horario não pode ser vazio'})
+        esporte:string
+
 }

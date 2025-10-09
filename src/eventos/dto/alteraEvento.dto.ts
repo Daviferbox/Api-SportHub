@@ -31,8 +31,24 @@ export class alteraEventoDTO {
     @IsString()
     @IsOptional()
     @IsNotEmpty({message: 'O horario não pode ser vazio'})
-    @ApiPropertyOptional({example: '18:00',
+    @ApiPropertyOptional({example: 'Rua:Nuno de assis',
                         description: 'Horário do evento no jeito certo tipo 22:22'}
         )
     local:string  
+
+     @IsString()
+    @IsOptional()
+    @IsNotEmpty({message: 'O horario não pode ser vazio'})
+    @ApiPropertyOptional({example: '18:00',
+                        description: 'Horário do evento no jeito certo tipo 22:22'}
+        )
+    faixaEtaria:string
+
+    @IsString()
+    @IsOptional()
+    @IsNotEmpty({message: 'O horario não pode ser vazio'})
+    @ApiPropertyOptional({example: '18:00',
+                        description: 'Horário do evento no jeito certo tipo 22:22'}
+        )
+    esporte:string
 }
