@@ -4,6 +4,7 @@ import { UsuariosArmazenados } from "./usuario.dm";
 import { v4 as uuid } from "uuid";
 import { criaUsuarioDTO} from "./dto/criaUsuario.dto";
 import { ListaUsuarioDTO } from "./dto/listaUsuario.dto";
+import { atualizaUsuario } from "./dto/alteraUsuario.dto";
 
 
 
@@ -16,7 +17,7 @@ import { ListaUsuarioDTO } from "./dto/listaUsuario.dto";
     @Post()
         async criaUsuario(@Body()dadosUsuario: criaUsuarioDTO){
 
-            var newUsuario = new UsuarioEntity(uuid(), dadosUsuario.nome, dadosUsuario.email, dadosUsuario.senha, dadosUsuario.contato );
+            var newUsuario = new UsuarioEntity(uuid(), dadosUsuario.nome, dadosUsuario.email, dadosUsuario.senha, dadosUsuario.contato, );
                 console.log (newUsuario);
 
             this.usuario.AdicionarUsuario(newUsuario)
@@ -47,7 +48,7 @@ import { ListaUsuarioDTO } from "./dto/listaUsuario.dto";
             const usuarioAtualizado = await this.usuario.atualizaUsuario(id, dadosAtualizacao);
             return {
                 usuario: usuarioAtualizado,
-                message: 'Usuário atualizado com sucesso'
+                message: 'Usuário atualizado '
             };
         }
 
