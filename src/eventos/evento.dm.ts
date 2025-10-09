@@ -1,15 +1,15 @@
 import { Injectable } from "@nestjs/common";
-import { EventoEntity } from "./evento.entity";
+import { eventoEntity } from "./evento.entity";
 
 @Injectable()
 export class EventosArmazenados{
-    #eventos: EventoEntity[] = [];  
+    #eventos: eventoEntity[] = [];  
 
-    adicionarEvento(evento: EventoEntity){
+    adicionarEvento(evento: eventoEntity){
         this.#eventos.push(evento);
     }   
 
-    async atualizaEvento(id: string, dadosAtualizacao: Partial<EventoEntity>) {
+    async atualizaEvento(id: string, dadosAtualizacao: Partial<eventoEntity>) {
         var possivelEvento = this.BuscaPorID(id);
         
         Object.entries(dadosAtualizacao).forEach(
@@ -37,7 +37,7 @@ export class EventosArmazenados{
     }
  
 
-    BuscaPorID(id: string): EventoEntity {
+    BuscaPorID(id: string): eventoEntity {
         const possivelEvento = this.#eventos.find(
             eventoSalvo => eventoSalvo.id === id
         );  
@@ -47,7 +47,7 @@ export class EventosArmazenados{
         return possivelEvento;
     }
 
-    get eventos(): EventoEntity[]{
+    get eventos(): eventoEntity[]{
         return this.#eventos;
     }
 }
