@@ -10,7 +10,7 @@ export class AlteraUsuarioDTO {
   @IsOptional()
   email: string;
 
-  @MinLength(6, { message: "Tamanho da senha inválido" })
+  @MinLength(8, { message: "Tamanho da senha inválido" })
   @IsOptional()
   senha: string;
 
