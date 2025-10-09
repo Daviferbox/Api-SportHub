@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { EventosArmazenados } from "./evento.dm";
 import { criaEventoDTO } from "./dto/criaEvento.dto";
-import { EventoEntity } from "./evento.entity";
+import { eventoEntity } from "./evento.entity";
 import {v4 as uuid} from 'uuid';
 import { alteraEventoDTO } from "./dto/alteraEvento.dto";
 import { ApiTags } from "@nestjs/swagger";
@@ -33,7 +33,7 @@ export class EventosController {
 
   @Post()
   async criarEvento(@Body() dadosEvento:criaEventoDTO){
-    var novoEvento = new EventoEntity(uuid(),dadosEvento.nome,dadosEvento.horario,dadosEvento.dia);
+    var novoEvento = new eventoEntity(uuid(),dadosEvento.nome,dadosEvento.horario,dadosEvento.dia,dadosEvento.local,dadosEvento.faixaEtaria,dadosEvento.esporte);
     this.Eventos.adicionarEvento(novoEvento);
     var retorno = {
         novoEvento,
@@ -43,7 +43,7 @@ export class EventosController {
   }
 
   @Get()
-    async retornaEvento(): Promise<EventoEntity[]> {  
+    async retornaEvento(): Promise<eventoEntity[]> {  
         var eventosListados = this.Eventos.eventos;
         return eventosListados;    
     }

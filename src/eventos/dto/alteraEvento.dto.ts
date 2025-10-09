@@ -15,7 +15,7 @@ export class alteraEventoDTO {
     @IsOptional()
     @IsNotEmpty({message: 'O horario não pode ser vazio'})
     @ApiPropertyOptional({example: '18:00',
-                        description: 'Horário do evento no formato HH:MM'}
+                        description: 'Horário do evento no jeito certo tipo 22:22'}
         )
     horario: string;
 
@@ -28,4 +28,11 @@ export class alteraEventoDTO {
         )
     dia: string;
 
+    @IsString()
+    @IsOptional()
+    @IsNotEmpty({message: 'O horario não pode ser vazio'})
+    @ApiPropertyOptional({example: '18:00',
+                        description: 'Horário do evento no jeito certo tipo 22:22'}
+        )
+    local:string  
 }
