@@ -1,10 +1,14 @@
-import { Module } from "@nestjs/common";
-import { EventosController } from "./evento.controller";
-import { EventosArmazenados } from "./evento.dm";
-import { DiaValidator } from "src/validator/dia.validator";
+import { Module } from '@nestjs/common';
+import { EventosController } from './evento.controller';
+import { EventoService } from './evento.service';
+import { eventoProviders } from './evento.provider';
+import { DatabaseModule }  from 'src/database/dataBase.module';
+
 
 @Module({
+  imports: [DatabaseModule],
   controllers: [EventosController],
-  providers: [EventosArmazenados,DiaValidator],
+  providers: [...eventoProviders, EventoService],
+  exports: [...eventoProviders],
 })
 export class EventoModule {}

@@ -1,20 +1,28 @@
-export class eventoEntity{
-    id:string;
-    nome:string;
-    horario:string;
-    dia:string;
-    local:string;
-    faixaEtaria:string;
-    esporte:string;
+import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm"
+
+
+@Entity()  /*Padrao typeorm pois a integração sera com MYSql*/
+export class EVENTO{
     
-    constructor( id:string,nome:string,horario:string,dia:string,local:string,
-    faixaEtaria:string,esporte:string){
-        this.id = id;
-        this.nome = nome;
-        this.horario = horario;
-        this.dia = dia;
-        this.local = local;
-        this.faixaEtaria = faixaEtaria;
-        this.esporte = esporte;
+    @PrimaryColumn()
+    ID: string;
+
+    @Column({length: 255})
+    NOME: string;
+
+    @Column('int')
+    HORARIO: string;
+    
+    @Column('int')
+    DIA:string;
+
+    @Column({length: 255})
+    LOCAL: string;
+
+    @Column({length: 255})
+    IDADE: string;
+
+    @Column({length: 255})
+    ESPORTE: string;
+  
     }
-}
