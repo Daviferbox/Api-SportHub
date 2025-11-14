@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { EventoModule } from './eventos/evento.modules';
 import { UsuarioModule } from './usuario/usuario.modulles';
 import { escolaModule } from './escola/escola.modules';
+import { FilesModule } from './files/files.module';
+
 
 
 
@@ -10,7 +12,7 @@ import { escolaModule } from './escola/escola.modules';
 // import { AppService } from './app.service';
 
 @Module({
-  imports: [UsuarioModule,escolaModule,EventoModule],
+  imports: [UsuarioModule,escolaModule,EventoModule,FilesModule],
   controllers: [],
   providers: [],
 })
