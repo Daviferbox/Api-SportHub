@@ -6,22 +6,22 @@ import { SenhaForte } from 'src/validator/senhaForteValidator';
 export class criaEscolaDTO {
   @IsString()
   @IsNotEmpty({ message: 'O nome não pode ser vazio' })
-  nome: string;
+  NOME: string;
 
   @IsEmail({}, { message: 'Email inválido' })
   @IsNotEmpty()
-  email: string;
+  EMAIL: string;
 
   @IsNotEmpty()
   @SenhaForte({ message: 'Senha fraca. Use letras maiúsculas, minúsculas, números e símbolos.' })
-  senha: string;
+  SENHA: string;
 
   @IsString()
       @IsNotEmpty({message: 'O horario não pode ser vazio'})
       @ApiProperty({example: '18:00',
                       description: 'Horário do evento no formato HH:MM'}
       )
-      horario: string;
+      HORARIO: string;
   
       @IsString()
       @IsNotEmpty({message: 'O dia não pode ser vazio'})
@@ -29,22 +29,22 @@ export class criaEscolaDTO {
       @ApiProperty({example: 'Segunda-feira',
                       description: 'Dia da semana em que o evento ocorre, deve ser um dia válido'}
       )
-      dia: string;
+      DIA: string;
   
       @IsString()
       @IsNotEmpty({message: 'O nome não pode ser vazio'})
       @IsNotEmpty({message: 'O horario não pode ser vazio'})
-      local:string  
+      LOCAL:string  
       
       @IsString()
       @IsNotEmpty({message: 'O nome não pode ser vazio'})
       @IsNotEmpty({message: 'O horario não pode ser vazio'})
-          faixaEtaria:string
+      FAIXAETARIA:string
       
       @IsString()
       @IsNotEmpty({message: 'O nome não pode ser vazio'})
       @IsNotEmpty({message: 'O horario não pode ser vazio'})
-          esporte:string
+      ESPORTE:string
   
 
  

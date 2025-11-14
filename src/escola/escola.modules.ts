@@ -1,10 +1,13 @@
-import { Module } from "@nestjs/common";
-import { EscolaController } from "./escola.controller";
-import { EscolaArmazenados } from "./escola.dm";
-import { DiaValidator } from "src/validator/dia.validator";
+import { Module } from '@nestjs/common';
+import { DatabaseModule }  from 'src/database/dataBase.module';
+import { escolaProviders } from './escola.provider';
+import { escolaService } from './escola.service';
+import { EscolaController } from './escola.controller';
 
 @Module({
+  imports: [DatabaseModule],
   controllers: [EscolaController],
-  providers: [EscolaArmazenados,DiaValidator],
+  providers: [...escolaProviders, escolaService],
+  exports: [...escolaProviders],
 })
-export class EscolaModule {}
+export class escolaModule {}
