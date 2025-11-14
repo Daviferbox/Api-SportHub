@@ -11,6 +11,14 @@ export class criaEventoDTO {
     NOME: string;    
 
     @IsString()
+    @IsNotEmpty({message: 'O dia não pode ser vazio'})
+    @ApiProperty({example: 'Esse evento e bacana',
+                    description: 'Dia da semana em que o evento ocorre, deve ser um dia válido'}
+    )
+   DESCRICAO: string;
+
+
+    @IsString()
     @IsNotEmpty({message: 'O horario não pode ser vazio'})
     @ApiProperty({example: '18:00',
                     description: 'Horário do evento no formato HH:MM'}

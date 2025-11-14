@@ -68,6 +68,7 @@ export class EventosController {
             evento => new ListaEventoDTO(
                 evento.ID,
                 evento.NOME,
+                evento.DESCRICAO,
                 evento.LOCAL,
                 evento.DIA,
                 evento.HORARIO,

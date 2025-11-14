@@ -9,10 +9,14 @@ export class EVENTO{
 
     @Column({length: 255})
     NOME: string;
+    
+    @Column({length: 500})
+    DESCRICAO: string
 
     @Column('int')
     HORARIO: string;
-    
+
+
     @Column('int')
     DIA:string;
 
@@ -21,8 +25,9 @@ export class EVENTO{
 
     @Column({length: 255})
     IDADE: string;
-
+    
     @Column({length: 255})
     ESPORTE: string;
+
   
     }

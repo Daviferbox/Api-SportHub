@@ -17,6 +17,7 @@ export class EventoService{
         let evento = new EVENTO();
         evento.ID = uuid();
         evento.NOME = dados.NOME;
+        evento.DESCRICAO = dados.DESCRICAO;
         evento.HORARIO = dados.HORARIO;
         evento.DIA = dados.DIA;
         evento.LOCAL = dados.LOCAL;
