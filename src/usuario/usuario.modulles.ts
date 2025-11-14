@@ -1,11 +1,17 @@
-import { Module} from "@nestjs/common"
-import { UsuarioController, UsuariosArmazenados } from "./usuario.controllers"
-import { EmailUnicoValidator } from "src/validator/emailValidator"
-
+import { Module } from '@nestjs/common';
+import { StrongPassValidator } from 'src/validator/senhaForteValidator';
+import { UsuarioService } from './usuario.service';
+import { DatabaseModule } from 'src/database/dataBase.module';
+import { UsuarioController } from './usuario.controllers';
+import { usuarioProviders } from './usuario.provider';
 
 
 @Module({
-    controllers: [UsuarioController],
-    providers: [EmailUnicoValidator,UsuariosArmazenados],
+  imports: [DatabaseModule],
+  controllers: [UsuarioController],
+  providers: [...usuarioProviders,
+    UsuarioService,
+    StrongPassValidator
+    ],
 })
-export class UsuarioModule{}
+export class UsuarioModule {}

@@ -1,15 +1,15 @@
 import { Injectable } from "@nestjs/common";
 import { registerDecorator, ValidationArguments, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface } from "class-validator";
-import { UsuariosArmazenados } from "src/usuario/usuario.controllers";
+import { UsuarioController } from "src/usuario/usuario.controllers";
 
 @Injectable()
 @ValidatorConstraint({ async: true })
 export class EmailUnicoValidator implements ValidatorConstraintInterface {
-  constructor(private usuariosArmazenados: UsuariosArmazenados) {}
+  constructor(private usuariosArmazenados:  UsuarioController) {}
 
   async validate(value: any, args?: ValidationArguments): Promise<boolean> {
     // verifica se já existe email cadastrado
-    const usuarioExistente = this.usuariosArmazenados.Usuarios.find(
+    const usuarioExistente = this.usuariosArmazenados.criaUsuario(
       (u) => u.email === value
     );
     return !usuarioExistente;

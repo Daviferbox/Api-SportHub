@@ -10,7 +10,7 @@ export class AtualizaUsuarioDTO {
     @ApiProperty({example: 'Davi Fernandes da Silva',
                   description: 'Nome completo do usuário'}
     )
-    nome: string;
+    NOME: string;
   
     @IsEmail(undefined, { message: "Email inválido" })
     @EmailUnico({ message: "Já existe usuário com esse email" })
@@ -18,7 +18,7 @@ export class AtualizaUsuarioDTO {
      @ApiProperty({example: 'Daviferbox@gmail.com',
                   description: 'Email do usuário, deve ser único'}
     )
-    email: string;
+    EMAIL: string;
   
     @MinLength(6, { message: "Tamanho da senha inválido" })
     @IsOptional()
@@ -26,12 +26,12 @@ export class AtualizaUsuarioDTO {
                   description: 'Senha do usuário, deve ter no mínimo 6 caracteres, deve ser forte'}
     )
     @SenhaForte({message: 'A senha deve ser mais forte'})
-    senha: string;
+    SENHA: string;
   
     @MinLength(6, { message: "Tamanho da senha inválido" })
     @IsOptional()
     @ApiProperty({example: '(14 xxxxx-xxxx)',
                   description: 'contato errado'}
     )
-    contato:string
+    CONTATO:string
 }
