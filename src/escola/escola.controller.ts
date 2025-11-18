@@ -1,7 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { criaEscolaDTO } from "./dto/criaescola.dto";
-import { ESCOLA } from "./escola.entity";
-import {v4 as uuid} from 'uuid';
 import { alteraEscolaDTO } from "./dto/alteraEscola.dto";
 import { ApiTags } from "@nestjs/swagger";
 import { RetornoPadraoDTO } from "src/dto/retornoPadrao.dto";
@@ -12,13 +10,13 @@ import { ListaEscolaDTO } from "./dto/listarEscola.dto";
 @ApiTags('escola')
 export class EscolaController {
   escolaService: any;
-  constructor(private Escola : EscolaController){
+  constructor(private Escola : escolaService){
 
   }
 
   @Put('/:id')
   async atualizaEscola(@Param('id') id: string, @Body() dadosAtualizacao: alteraEscolaDTO){
-    const escolaAtualizado = await this.Escola.atualizaEscola(id, dadosAtualizacao);
+    const escolaAtualizado = await this.Escola.alterar(id, dadosAtualizacao);
     return {
         evento: escolaAtualizado,
         message: 'Escola atualizado com sucesso'
@@ -27,7 +25,7 @@ export class EscolaController {
 
   @Delete('/:id')
   async deletaEscola(@Param('id') id: string){
-    const EscolaRemovida = await this.Escola.removeEscola(id);
+    const EscolaRemovida = await this.Escola.remover(id);
     return {
         evento: EscolaRemovida,
         message: 'Escola removida com sucesso'

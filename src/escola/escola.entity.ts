@@ -9,7 +9,7 @@ export class ESCOLA{
     @Column({length: 255})
     NOME: string;
 
-    @Column('int')
+    @Column({length: 255})
     HORARIO: String;
 
     @Column({length: 255})
@@ -25,10 +25,7 @@ export class ESCOLA{
     @Column({length: 255})
     ESPORTE: string;
 
-
-
-  
-}
+}   
 
 
 

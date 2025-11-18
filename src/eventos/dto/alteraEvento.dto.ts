@@ -9,7 +9,7 @@ export class alteraEventoDTO {
     @ApiPropertyOptional({example: 'Voley',
                         description: 'Nome do evento'}
         )
-    nome: string;    
+    NOME: string;    
 
     @IsString()
     @IsOptional()
@@ -17,7 +17,15 @@ export class alteraEventoDTO {
     @ApiPropertyOptional({example: '18:00',
                         description: 'Horário do evento no jeito certo tipo 22:22'}
         )
-    horario: string;
+    HORARIO: string;
+
+    @IsString()
+    @IsOptional()
+    @IsNotEmpty({message: 'por favor,um texto esplicativo'})
+    @ApiPropertyOptional({example: '18:00',
+                        description: 'Horário do evento no jeito certo tipo 22:22'}
+        )
+    DESCRICAO: string;
 
     @IsString()
     @IsOptional()
@@ -26,7 +34,7 @@ export class alteraEventoDTO {
     @ApiPropertyOptional({example: 'Segunda-feira',
                         description: 'Dia da semana em que o evento ocorre, deve ser um dia válido'}
         )
-    dia: string;
+    DIA: string;
 
     @IsString()
     @IsOptional()
@@ -34,7 +42,7 @@ export class alteraEventoDTO {
     @ApiPropertyOptional({example: 'Rua:Nuno de assis',
                         description: 'Horário do evento no jeito certo tipo 22:22'}
         )
-    local:string  
+    LOCAL:string  
 
      @IsString()
     @IsOptional()
@@ -42,7 +50,7 @@ export class alteraEventoDTO {
     @ApiPropertyOptional({example: '18:00',
                         description: 'Horário do evento no jeito certo tipo 22:22'}
         )
-    faixaEtaria:string
+    IDADE:string
 
     @IsString()
     @IsOptional()
@@ -50,5 +58,5 @@ export class alteraEventoDTO {
     @ApiPropertyOptional({example: '18:00',
                         description: 'Horário do evento no jeito certo tipo 22:22'}
         )
-    esporte:string
+    ESPORTE:string
 }

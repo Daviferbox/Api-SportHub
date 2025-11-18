@@ -9,6 +9,5 @@ import { DatabaseModule }  from 'src/database/dataBase.module';
   imports: [DatabaseModule],
   controllers: [EventosController],
   providers: [...eventoProviders, EventoService],
-  exports: [...eventoProviders],
 })
 export class EventoModule {}

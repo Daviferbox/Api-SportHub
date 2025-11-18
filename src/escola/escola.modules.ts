@@ -8,6 +8,5 @@ import { EscolaController } from './escola.controller';
   imports: [DatabaseModule],
   controllers: [EscolaController],
   providers: [...escolaProviders, escolaService],
-  exports: [...escolaProviders],
 })
 export class escolaModule {}

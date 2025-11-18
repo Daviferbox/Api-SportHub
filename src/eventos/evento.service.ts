@@ -66,19 +66,25 @@ export class EventoService{
 
 
      async alterar(id: string, dados: alteraEventoDTO): Promise<RetornoPadraoDTO> {
-        const evento = await this.localizaID(id);
+    const evento = await this.localizaID(id);
 
-            return this.eventoRepository.save(evento)
-        .then((result)=> {
-            return <RetornoPadraoDTO>{
-                data: evento.ID,
-                message: "Evento alterado com sucesso"
-            };
-        })
-        .catch((error)=>{
-            throw new Error('Erro ao alterar evento:',error.message);
-        });
-    }
+    // aplica as mudanças
+    evento.NOME = dados.NOME ?? evento.NOME;
+    evento.DESCRICAO = dados.DESCRICAO ?? evento.DESCRICAO;
+    evento.HORARIO = dados.HORARIO ?? evento.HORARIO;
+    evento.DIA = dados.DIA ?? evento.DIA;
+    evento.LOCAL = dados.LOCAL ?? evento.LOCAL;
+    evento.IDADE = dados.IDADE ?? evento.IDADE;
+    evento.ESPORTE = dados.ESPORTE ?? evento.ESPORTE;
+
+    await this.eventoRepository.save(evento);
+
+    return {
+        data: evento.ID,
+        message: "Evento alterado com sucesso"
+    };
+}
+
    
    
    
