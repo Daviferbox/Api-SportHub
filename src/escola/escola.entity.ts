@@ -10,7 +10,7 @@ export class ESCOLA{
     NOME: string;
 
     @Column({length: 255})
-    HORARIO: String;
+    HORARIO: string;
 
     @Column({length: 255})
     DIA: string;

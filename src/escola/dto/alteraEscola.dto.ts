@@ -12,14 +12,6 @@ export class alteraEscolaDTO {
         )
      NOME: string;  
     
-    
-     @IsEmail({}, { message: 'Email inválido' })
-     @IsNotEmpty()
-     EMAIL: string;
-    
-      @IsNotEmpty()
-      @SenhaForte({ message: 'Senha fraca. Use letras maiúsculas, minúsculas, números e símbolos.' })
-      SENHA: string;
 
     @IsString()
     @IsOptional()

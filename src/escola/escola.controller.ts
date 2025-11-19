@@ -9,14 +9,14 @@ import { ListaEscolaDTO } from "./dto/listarEscola.dto";
 @Controller('/escola')
 @ApiTags('escola')
 export class EscolaController {
-  escolaService: any;
-  constructor(private Escola : escolaService){
+  
+  constructor(private escolaService : escolaService){
 
   }
 
   @Put('/:id')
   async atualizaEscola(@Param('id') id: string, @Body() dadosAtualizacao: alteraEscolaDTO){
-    const escolaAtualizado = await this.Escola.alterar(id, dadosAtualizacao);
+    const escolaAtualizado = await this.escolaService.alterar(id, dadosAtualizacao);
     return {
         evento: escolaAtualizado,
         message: 'Escola atualizado com sucesso'
@@ -25,14 +25,11 @@ export class EscolaController {
 
   @Delete('/:id')
   async deletaEscola(@Param('id') id: string){
-    const EscolaRemovida = await this.Escola.remover(id);
+    const EscolaRemovida = await this.escolaService.remover(id);
     return {
         evento: EscolaRemovida,
         message: 'Escola removida com sucesso'
     };
-  }
-  removeEscola(id: string) {
-    throw new Error("Method not implemented.");
   }
 
   @Post()

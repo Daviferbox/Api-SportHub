@@ -4,19 +4,11 @@ import { DiaSemana } from 'src/validator/dia.validator';
 import { SenhaForte } from 'src/validator/senhaForteValidator';
 
 export class criaEscolaDTO {
-  @IsString()
-  @IsNotEmpty({ message: 'O nome não pode ser vazio' })
-  NOME: string;
+      @IsString()
+      @IsNotEmpty({ message: 'O nome não pode ser vazio' })
+      NOME: string;
 
-  @IsEmail({}, { message: 'Email inválido' })
-  @IsNotEmpty()
-  EMAIL: string;
-
-  @IsNotEmpty()
-  @SenhaForte({ message: 'Senha fraca. Use letras maiúsculas, minúsculas, números e símbolos.' })
-  SENHA: string;
-
-  @IsString()
+      @IsString()
       @IsNotEmpty({message: 'O horario não pode ser vazio'})
       @ApiProperty({example: '18:00',
                       description: 'Horário do evento no formato HH:MM'}
