@@ -23,7 +23,7 @@ export class UsuarioService {
     var usuarios = await (this.usuarioRepository
       .createQueryBuilder('usuario')
       .select('usuario.ID', 'ID')
-      .addSelect('PS.NOME', 'NOME')
+      .addSelect('usuario.NOME', 'NOME')
     //   .addSelect('usuario.foto', 'FOTO')
       .addSelect('usuario.email', 'EMAIL')
       .getRawMany());
@@ -35,7 +35,7 @@ export class UsuarioService {
     var usuario = await (this.usuarioRepository
       .createQueryBuilder('usuario')
       .select('usuario.ID', 'ID')
-      .addSelect('PS.NOME', 'NOME')
+      .addSelect('usuario.NOME', 'NOME')
       .addSelect('usuario.email', 'EMAIL')
     //   .addSelect('usuario.foto', 'FOTO')
       .andWhere('usuario.ID = :ID', { ID: `${ID}` })
@@ -83,40 +83,29 @@ export class UsuarioService {
         return genero
     }
 
-  async localizarEmail(email: string): Promise<USUARIO> {
-        const localiEmail = await this.usuarioRepository.findOne({
-            where: { EMAIL: email },
-        });
-        if (!localiEmail) {
-            throw new Error('Usuario não encontrado!!');
-        }
-        return localiEmail
-    }
+  async localizarEmail(email: string): Promise<USUARIO | null> {
+    return await this.usuarioRepository.findOne({
+        where: { EMAIL: email },
+    });
+  }
+
 
 
   async Login(email: string, senha: string) {
-    //primeiro é pesquisado o usuário por meio do email
-    const possivelUsuario = await this.localizarEmail(email)
+    const usuario = await this.localizarEmail(email);
+
+    if (!usuario) {
+        return { usuario: null, status: false };
+    }
+
+    const senhaCorreta = true /*usuario.login(senha);*/
 
     return {
-      //aqui é validada a senha, caso a senha esteja correta, é retornado os dados do usuário e também o status (true para correto, false para incorreto)
-      usuario: possivelUsuario ? (possivelUsuario.login(senha) ? possivelUsuario : null) : null,
-      status: possivelUsuario ? possivelUsuario.login(senha): false
+        usuario: senhaCorreta ? usuario : null,
+        status: senhaCorreta
     };
-  }
+}
 
-  async validaEmail(emailNovo: string) {
-    try{
-      const possivelUsuario = await this.localizarEmail(emailNovo)
-    }
-    catch{
-        return true;
-    }
-    finally{
-        return false;
-    }
-    
-  }
 
 
   async remover(id: string): Promise<RetornoPadraoDTO> {

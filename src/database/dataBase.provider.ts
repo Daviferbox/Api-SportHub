@@ -1,9 +1,10 @@
 import { DataSource } from "typeorm";
+import { USUARIO } from "../usuario/usuario.entity";
 
 export const databaseProviders = [
     {
         provide: "DATA_SOURCE",
-        useFactory: async() => {
+        useFactory: async () => {
             const dataSource = new DataSource({
                 type: 'mysql',
                 host: 'localhost',
@@ -11,15 +12,11 @@ export const databaseProviders = [
                 username: 'root',
                 password: '',
                 database: 'sporthub',
-                entities: [
-                    __dirname + '/../**/*.entity{.ts,.js}',
-                ],
-                synchronize:false,
+                entities: [USUARIO], // << AQUI ESTÁ A CORREÇÃO
+                synchronize: false,
             });
 
             return dataSource.initialize();
         },
-    }
-]
-
-    
+    },
+];

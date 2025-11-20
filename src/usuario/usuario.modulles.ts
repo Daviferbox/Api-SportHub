@@ -4,14 +4,17 @@ import { UsuarioService } from './usuario.service';
 import { DatabaseModule } from 'src/database/dataBase.module';
 import { UsuarioController } from './usuario.controllers';
 import { usuarioProviders } from './usuario.provider';
-
+import { EmailUnicoValidator } from 'src/validator/emailValidator';
 
 @Module({
   imports: [DatabaseModule],
   controllers: [UsuarioController],
-  providers: [...usuarioProviders,
+  providers: [
+    ...usuarioProviders,
+    EmailUnicoValidator,
     UsuarioService,
-    StrongPassValidator
-    ],
+    StrongPassValidator,
+  ],
+  exports: [UsuarioService]   // <-- FALTAVA ISSO!!
 })
 export class UsuarioModule {}

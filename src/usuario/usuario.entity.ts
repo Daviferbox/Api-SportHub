@@ -35,39 +35,4 @@ export class USUARIO{
     }
 }
 
-    // @Column({length: 255})
-    // IDPESSOA: string; 
-
-    // @Column({length: 255})
-    // FOTO:string;
-
-
-    // @OneToOne(() => PESSOA)
-    // @JoinColumn({ name: 'IDPESSOA', referencedColumnName:'ID'})
-    // PESSOA: PESSOA;
-
-    // @OneToOne(() => FILES)
-    // @JoinColumn({ name: 'FOTO', referencedColumnName:'ID'})
-    // FILE: FILES;
-    
-   
-   
-
-   // export class UsuarioEntity{
-    //     id: string
-    //     nome: string
-    //     email: string
-    //     senha: string
-    //     contato: string
-
-    //      constructor (id: string, nome: string, email: string, senha: string, contato: string){
-    //         this.id = id
-    //         this.nome = nome
-    //         this.email = email
-    //         this.senha = senha
-    //         this.contato = contato
-        
-    // }
-
-    // }
-   
+  
