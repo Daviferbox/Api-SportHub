@@ -1,6 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsEmail, IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator";
-import { EmailUnico } from "src/validator/emailValidator";
 import { SenhaForte } from "src/validator/senhaForteValidator";
 
 export class AtualizaUsuarioDTO {
@@ -13,7 +12,6 @@ export class AtualizaUsuarioDTO {
     NOME: string;
   
     @IsEmail(undefined, { message: "Email inválido" })
-    @EmailUnico({ message: "Já existe usuário com esse email" })
     @IsOptional()
      @ApiProperty({example: 'Daviferbox@gmail.com',
                   description: 'Email do usuário, deve ser único'}

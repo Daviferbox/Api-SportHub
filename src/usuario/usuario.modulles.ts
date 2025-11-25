@@ -4,14 +4,12 @@ import { UsuarioService } from './usuario.service';
 import { DatabaseModule } from 'src/database/dataBase.module';
 import { UsuarioController } from './usuario.controllers';
 import { usuarioProviders } from './usuario.provider';
-import { EmailUnicoValidator } from 'src/validator/emailValidator';
 
 @Module({
   imports: [DatabaseModule],
   controllers: [UsuarioController],
   providers: [
     ...usuarioProviders,
-    EmailUnicoValidator,
     UsuarioService,
     StrongPassValidator,
   ],

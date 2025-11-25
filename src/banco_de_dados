@@ -18,6 +18,7 @@ CREATE TABLE EVENTO (
 -- ================================
 -- TABELA ESCOLA
 -- ================================
+
 CREATE TABLE ESCOLA (
     ID VARCHAR(255) PRIMARY KEY,
     NOME VARCHAR(255) NOT NULL,

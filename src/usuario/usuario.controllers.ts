@@ -7,6 +7,7 @@ import { LoginDTO } from "./dto/login.dto";
 import { RetornoPadraoDTO } from "src/dto/retornoPadrao.dto";
 import { UsuarioService } from "./usuario.service";
 
+
 @Controller('/usuarios')
 @ApiTags('usuarios')
 export class UsuarioController {
@@ -14,12 +15,13 @@ export class UsuarioController {
         
     }
 
-     @Post()//essa linha, seria um decorator para definir que a função é um metodo POST
+     @Post("criacao")//essa linha, seria um decorator para definir que a função é um metodo POST
     //Para receber dados do body da requisição, deve utilizar o decorator de "Body", especificando depois a variavel
     @ApiCreatedResponse({ description:'Retorna que houve sucesso na inclusão'})
     @ApiResponse({status: 500, description:'Retorna que houve erro na inclusão.'})
     @ApiResponse({status: 400, description:'Retorna que há algum dado inválido na requisição.'})
-    async criaUsuario(@Body() dadosUsuario: criaUsuarioDTO): Promise <RetornoPadraoDTO>{       
+    async criaUsuario(@Body() dadosUsuario: criaUsuarioDTO): Promise <RetornoPadraoDTO>{ 
+        console.log(dadosUsuario)  
         //criação do objeto de usuário, aqui é criado um objeto específico desse usuário 
         try{
             return this.usuarioService.inserir(dadosUsuario) 

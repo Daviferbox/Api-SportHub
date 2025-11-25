@@ -1,7 +1,6 @@
 import { IsString, IsEmail, IsNotEmpty, Matches,  } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { SenhaForte } from 'src/validator/senhaForteValidator';
-import { EmailUnico} from 'src/validator/emailValidator';
 
 export class criaUsuarioDTO {
   @IsString()
@@ -14,7 +13,6 @@ export class criaUsuarioDTO {
   @IsNotEmpty()
   @ApiProperty({example: 'usuario@gmail.com',
   description: 'Seu email ou o email proprio da instituição'})
-  @EmailUnico({message: "Já existe usuário com esse email"})
   EMAIL: string;
 
   @IsNotEmpty()
