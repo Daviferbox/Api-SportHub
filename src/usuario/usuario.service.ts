@@ -49,8 +49,8 @@ export class UsuarioService {
 
     usuario.NOME = dados.NOME;
     usuario.EMAIL = dados.EMAIL;
-    usuario.trocaSenha(dados.SENHA)
     usuario.CONTATO = dados.CONTATO;
+    usuario.trocaSenha(dados.SENHA)
     // usuario.FOTO = dados.FOTO;
 
 
@@ -100,10 +100,12 @@ export class UsuarioService {
 
     const senhaCorreta = true /*usuario.login(senha);*/
 
+    
     return {
-        usuario: senhaCorreta ? usuario : null,
-        status: senhaCorreta
-    };
+    usuario: senhaCorreta ? usuario : null,
+    status: senhaCorreta,
+    id: senhaCorreta ? usuario.ID : null
+};
 }
 
 

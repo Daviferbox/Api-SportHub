@@ -1,5 +1,5 @@
 
-import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity,  PrimaryColumn } from "typeorm";
 
 @Entity()
 export class ESCOLA{
@@ -27,42 +27,3 @@ export class ESCOLA{
 
 }   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export class escolaEntity{
-//     id:string;
-//     nome:string;
-//     horario:string;
-//     dia:string;
-//     local:string;
-//     faixaEtaria:string;
-//     esporte:string;
-    
-//     constructor( id:string,nome:string,horario:string,dia:string,local:string,
-//     faixaEtaria:string,esporte:string){
-//         this.id = id;
-//         this.nome = nome;
-//         this.horario = horario;
-//         this.dia = dia;
-//         this.local = local;
-//         this.faixaEtaria = faixaEtaria;
-//         this.esporte = esporte;
-//     }
-// }

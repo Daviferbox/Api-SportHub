@@ -46,7 +46,7 @@ export class EventosController {
     }
 
     
-    @Get('/:ID')
+    @Get('/listar/:ID')
     @ApiResponse({status: 200, description:'Retorna que houve sucesso na consulta'})
     @ApiResponse({status: 500, description:'Retorna que houve erro na consulta.'})
     
@@ -58,10 +58,8 @@ export class EventosController {
             };
     }
 
-    
-    @Get()
-    @ApiResponse({status: 200, description:'Retorna que houve sucesso na consulta'})
-    
+    // @ApiResponse({status: 200, description:'Retorna que houve sucesso na consulta'})
+    @Get("/listar")        
     async retornaEvento(): Promise <ListaEventoDTO[]>{
         var eventoListados = await this.eventoService.listarTodos();
         const ListaRetorno = eventoListados.map(
@@ -81,54 +79,6 @@ export class EventosController {
 
         return retorno
     }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // @Put('/:id')
-  // async atualizaEvento(@Param('id') id: string, @Body() dadosAtualizacao: alteraEventoDTO){
-  //   const eventoAtualizado = await this.Eventos.atualizaEvento(id, dadosAtualizacao);
-  //   return {
-  //       evento: eventoAtualizado,
-  //       message: 'Evento atualizado com sucesso'
-  //   };
-  // }
 
-  // @Delete('/:id')
-  // async deletaEvento(@Param('id') id: string){
-  //   const eventoRemovido = await this.Eventos.removeEventos(id);
-  //   return {
-  //       evento: eventoRemovido,
-  //       message: 'Evento removido com sucesso'
-  //   };
-  // }
-
-  // @Post()
-  // async criarEvento(@Body() dadosEvento:criaEventoDTO){
-  //   var novoEvento = new eventoEntity(uuid(),dadosEvento.nome,dadosEvento.horario,dadosEvento.dia,dadosEvento.local,dadosEvento.faixaEtaria,dadosEvento.esporte);
-  //   this.Eventos.adicionarEvento(novoEvento);
-  //   var retorno = {
-  //       novoEvento,
-  //       message: 'Evento criado com sucesso'
-  //   };
-  //   return retorno;
-  // }
-
-  // @Get()
-  //   async retornaEvento(): Promise<eventoEntity[]> {  
-  //       var eventosListados = this.Eventos.eventos;
-  //       return eventosListados;    
-  //   }
 
 }

@@ -27,7 +27,7 @@ export class criaEventoDTO {
 
     @IsString()
     @IsNotEmpty({message: 'O dia não pode ser vazio'})
-    @DiaSemana({message: 'O dia deve ser um dia da semana válido'})
+    // @DiaSemana({message: 'O dia deve ser um dia da semana válido'})
     @ApiProperty({example: 'Segunda-feira',
                     description: 'Dia da semana em que o evento ocorre, deve ser um dia válido'}
     )

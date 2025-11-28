@@ -32,13 +32,13 @@ export class EscolaController {
     };
   }
 
-  @Post()
+  @Post("/criar")
   async criaEscola(@Body() dadosEscola: criaEscolaDTO): Promise <RetornoPadraoDTO>{       
         var retorno = await this.escolaService.inserir(dadosEscola);   
         return retorno        
     }
 
-  @Get()
+  @Get("/listar")
     async retornaEscola(): Promise <ListaEscolaDTO[]>{
             var escolaListados = await this.escolaService.listarTodos();
             const ListaRetorno = escolaListados.map(

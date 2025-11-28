@@ -16,11 +16,13 @@ export class USUARIO{
     EMAIL: string;
 
     @Column({length: 255})
-    SENHA: string;
+    CONTATO: string; 
 
 
     @Column({length: 255})
-    CONTATO: string; 
+    SENHA: string;
+
+
 
 
 

@@ -37,10 +37,16 @@ export class UsuarioController {
     async fazerLogin(@Body() dadosLogin: LoginDTO){
         //chamada da função de login
         try{
-          var retornoLogin = await this.usuarioService.Login(dadosLogin.EMAIL,dadosLogin.SENHA)
-          //criação de retorno, onde caso a resposta seja true é retornado login efetuado, caso seja false, retorna email ou senha invalidos, também é retornado o usuário logado
+          var retornoLogin = await this.usuarioService.Login(dadosLogin.EMAIL, dadosLogin.SENHA);
 
-          var retorno = new RetornoPadraoDTO(retornoLogin.status?'Login efetuado, sucesso':'Email ou senha invalidos!',retornoLogin.status);        
+    var retorno = new RetornoPadraoDTO(
+    retornoLogin.status ? 'Login efetuado, sucesso' : 'Email ou senha invalidos!',
+    retornoLogin.id
+        );
+
+    return retorno;
+
+       
 
           return retorno;       
         }
