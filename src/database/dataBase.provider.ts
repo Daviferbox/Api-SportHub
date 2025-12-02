@@ -9,16 +9,20 @@ export const databaseProviders = [
         useFactory: async () => {
             const dataSource = new DataSource({
                 type: 'mysql',
-                host: '50.116.112.16',
-                port: 3306,
-                username: 'vitali04_adm_sporthub',
-                password: 'Gilm1997!',
-                database: 'vitali04_sporthub',
+                // host: '50.116.112.16',
+                // port: 3306,
+                // username: 'vitali04_adm_sporthub',
+                // password: 'Gilm1997!',
+                // database: 'vitali04_sporthub',
+                 port: 3306,
+                username: 'root',
+                password: '', // altere se tiver senha
+                database: 'sporthub', // seu banco local
                 entities: [USUARIO,ESCOLA,EVENTO], // << AQUI ESTÁ A CORREÇÃO
                 synchronize: false,
             });
 
-            return dataSource.initialize();
+            return dataSource.initialize(); 
         },
     },
 ];
